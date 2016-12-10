@@ -41,11 +41,11 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::__construct
+     * @covers DNSMadeEasy\Driver\REST::__construct
      */
     public function testConstructor()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\REST');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\REST');
 
         $configuration = $reflectionClass->getProperty('_config');
         $configuration->setAccessible(true);
@@ -58,16 +58,16 @@ class RESTTest extends Base
 
         $rest = new REST(new Configuration($this->getApiKey(), $this->getSecretKey(), true));
 
-        $this->assertInstanceOf('DNSMadeEasy\driver\Configuration', $configuration->getValue($rest),
-            'The configuration object should be of the type DNSMadeEasy\driver\Configuration');
-        $this->assertInstanceOf('DNSMadeEasy\debug\Debugger', $debugger->getValue($rest),
-            'The debugger should be of the type DNSMadeEasy\debug\Debugger');
-        $this->assertInstanceOf('DNSMadeEasy\driver\URITemplate', $uriTemplate->getValue($rest),
-            'The URITemplate object should be of the type DNSMadeEasy\driver\URITemplate');
+        $this->assertInstanceOf('DNSMadeEasy\Driver\Configuration', $configuration->getValue($rest),
+            'The configuration object should be of the type DNSMadeEasy\Driver\Configuration');
+        $this->assertInstanceOf('DNSMadeEasy\Debug\Debugger', $debugger->getValue($rest),
+            'The debugger should be of the type DNSMadeEasy\Debug\Debugger');
+        $this->assertInstanceOf('DNSMadeEasy\Driver\URITemplate', $uriTemplate->getValue($rest),
+            'The URITemplate object should be of the type DNSMadeEasy\Driver\URITemplate');
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::get
+     * @covers DNSMadeEasy\Driver\REST::get
      */
     public function testGet()
     {
@@ -76,9 +76,9 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::post
-     * @covers DNSMadeEasy\driver\REST::put
-     * @covers DNSMadeEasy\driver\REST::delete
+     * @covers DNSMadeEasy\Driver\REST::post
+     * @covers DNSMadeEasy\Driver\REST::put
+     * @covers DNSMadeEasy\Driver\REST::delete
      */
     public function testPostPutAndDelete()
     {
@@ -113,11 +113,11 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::getAuthenticationHeaders
+     * @covers DNSMadeEasy\Driver\REST::getAuthenticationHeaders
      */
     public function testGetAuthenticationHeaders()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\REST');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\REST');
 
         $getAuthenticationHeaders = $reflectionClass->getMethod('getAuthenticationHeaders');
         $getAuthenticationHeaders->setAccessible(true);
@@ -129,11 +129,11 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::getAuthenticationHeaders
+     * @covers DNSMadeEasy\Driver\REST::getAuthenticationHeaders
      */
     public function testGetAuthenticationHeadersWithoutAPIKeys()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\REST');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\REST');
 
         $getAuthenticationHeaders = $reflectionClass->getMethod('getAuthenticationHeaders');
         $getAuthenticationHeaders->setAccessible(true);
@@ -144,8 +144,8 @@ class RESTTest extends Base
         try {
             $result = $getAuthenticationHeaders->invoke($rest);
         } catch (\Exception $e) {
-            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e,
-                'Exception thrown was not a DNSMadeEasy\exception\RESTException');
+            $this->assertInstanceOf('DNSMadeEasy\Exception\RESTException', $e,
+                'Exception thrown was not a DNSMadeEasy\Exception\RESTException');
 
             return;
         }
@@ -154,11 +154,11 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::send
+     * @covers DNSMadeEasy\Driver\REST::send
      */
     public function testSend()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\REST');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\REST');
 
         $send = $reflectionClass->getMethod('send');
         $send->setAccessible(true);
@@ -197,11 +197,11 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::send
+     * @covers DNSMadeEasy\Driver\REST::send
      */
     public function testSendInDebugMode()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\REST');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\REST');
 
         $send = $reflectionClass->getMethod('send');
         $send->setAccessible(true);
@@ -218,12 +218,12 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\REST::send
+     * @covers DNSMadeEasy\Driver\REST::send
      */
     public function testSendWithInvalidAPIEndpoint()
     {
-        $restClass = new \ReflectionClass('DNSMadeEasy\driver\REST');
-        $configurationClass = new \ReflectionClass('DNSMadeEasy\driver\Configuration');
+        $restClass = new \ReflectionClass('DNSMadeEasy\Driver\REST');
+        $configurationClass = new \ReflectionClass('DNSMadeEasy\Driver\Configuration');
 
         $send = $restClass->getMethod('send');
         $send->setAccessible(true);
@@ -239,8 +239,8 @@ class RESTTest extends Base
         try {
             $send->invoke($rest, '/dns/soa', array(), 'GET');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e,
-                'Exception thrown was not a DNSMadeEasy\exception\RESTException');
+            $this->assertInstanceOf('DNSMadeEasy\Exception\RESTException', $e,
+                'Exception thrown was not a DNSMadeEasy\Exception\RESTException');
 
             return;
         }

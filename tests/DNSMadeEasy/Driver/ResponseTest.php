@@ -44,11 +44,11 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::__construct
+     * @covers DNSMadeEasy\Driver\Response::__construct
      */
     public function testConstructor()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Response');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Response');
 
         $rawHeaders = $reflectionClass->getProperty('_rawHeaders');
         $rawHeaders->setAccessible(true);
@@ -80,7 +80,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::getVersion
+     * @covers DNSMadeEasy\Driver\Response::getVersion
      */
     public function testGetVersion()
     {
@@ -88,7 +88,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::getStatusCode
+     * @covers DNSMadeEasy\Driver\Response::getStatusCode
      */
     public function testGetStatusCode()
     {
@@ -96,7 +96,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::getStatus
+     * @covers DNSMadeEasy\Driver\Response::getStatus
      */
     public function testGetStatus()
     {
@@ -104,7 +104,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::getHeaders
+     * @covers DNSMadeEasy\Driver\Response::getHeaders
      */
     public function testGetHeaders()
     {
@@ -113,7 +113,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::getBody
+     * @covers DNSMadeEasy\Driver\Response::getBody
      */
     public function testGetBody()
     {
@@ -121,7 +121,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::getTimeTaken
+     * @covers DNSMadeEasy\Driver\Response::getTimeTaken
      */
     public function testGetTimeTaken()
     {
@@ -129,7 +129,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::getRawHeaders
+     * @covers DNSMadeEasy\Driver\Response::getRawHeaders
      */
     public function testGetRawHeaders()
     {
@@ -137,11 +137,11 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::parseMessage
+     * @covers DNSMadeEasy\Driver\Response::parseMessage
      */
     public function testParseMessage()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Response');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Response');
 
         $parseMessage = $reflectionClass->getMethod('parseMessage');
         $parseMessage->setAccessible(true);
@@ -158,11 +158,11 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::parseMessage
+     * @covers DNSMadeEasy\Driver\Response::parseMessage
      */
     public function testParseInvalidMessage()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Response');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Response');
 
         $parseMessage = $reflectionClass->getMethod('parseMessage');
         $parseMessage->setAccessible(true);
@@ -170,8 +170,8 @@ class ResponseTest extends Base
         try {
             $parsed = $parseMessage->invoke($this->response, "invalid data");
         } catch (\Exception $e) {
-            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e,
-                'Exception thrown was not a DNSMadeEasy\exception\RESTException');
+            $this->assertInstanceOf('DNSMadeEasy\Exception\RESTException', $e,
+                'Exception thrown was not a DNSMadeEasy\Exception\RESTException');
 
             return;
         }
@@ -180,11 +180,11 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::parseHeaders
+     * @covers DNSMadeEasy\Driver\Response::parseHeaders
      */
     public function testParseHeaders()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Response');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Response');
 
         $parseHeaders = $reflectionClass->getMethod('parseHeaders');
         $parseHeaders->setAccessible(true);
@@ -210,11 +210,11 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::fixJSON
+     * @covers DNSMadeEasy\Driver\Response::fixJSON
      */
     public function testFixJSON()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Response');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Response');
 
         $fixJSON = $reflectionClass->getMethod('fixJSON');
         $fixJSON->setAccessible(true);
@@ -227,11 +227,11 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Response::fixJSON
+     * @covers DNSMadeEasy\Driver\Response::fixJSON
      */
     public function testFixJSONWithValidJSON()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Response');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Response');
 
         $fixJSON = $reflectionClass->getMethod('fixJSON');
         $fixJSON->setAccessible(true);

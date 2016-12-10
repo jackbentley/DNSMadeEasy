@@ -43,34 +43,34 @@ class ClientTest extends Base
 
         $client = new Client($this->getApiKey(), $this->getSecretKey(), true);
 
-        $this->assertInstanceOf('DNSMadeEasy\driver\Configuration', $configuration->getValue($client),
-            'The configuration object should be of the type DNSMadeEasy\driver\Configuration');
-        $this->assertInstanceOf('DNSMadeEasy\driver\REST', $driver->getValue($client),
-            'The REST driver should be of the type DNSMadeEasy\driver\REST');
-        $this->assertInstanceOf('DNSMadeEasy\resource\Domains', $client->domains,
-            'The domains manager should be of the type DNSMadeEasy\resource\Domains');
-        $this->assertInstanceOf('DNSMadeEasy\resource\Records', $client->records,
-            'The records manager should be of the type DNSMadeEasy\resource\Records');
-        $this->assertInstanceOf('DNSMadeEasy\resource\SoaRecords', $client->soaRecords,
-            'The SoA records manager should be of the type DNSMadeEasy\resource\SoaRecords');
-        $this->assertInstanceOf('DNSMadeEasy\resource\VanityDNS', $client->vanityDNS,
-            'The vanity DNS manager should be of the type DNSMadeEasy\resource\VanityDNS');
-        $this->assertInstanceOf('DNSMadeEasy\resource\Templates', $client->templates,
-            'The templates manager should be of the type DNSMadeEasy\resource\Templates');
-        $this->assertInstanceOf('DNSMadeEasy\resource\TemplateRecords', $client->templateRecords,
-            'The template recorsd manager should be of the type DNSMadeEasy\resource\TemplateRecords');
-        $this->assertInstanceOf('DNSMadeEasy\resource\TransferACL', $client->transferACL,
-            'The transfer ACL manager should be of the type DNSMadeEasy\resource\TransferACL');
-        $this->assertInstanceOf('DNSMadeEasy\resource\Folders', $client->folders,
-            'The folders manager should be of the type DNSMadeEasy\resource\Folders');
-        $this->assertInstanceOf('DNSMadeEasy\resource\Usage', $client->usage,
-            'The usage manager should be of the type DNSMadeEasy\resource\Usage');
-        $this->assertInstanceOf('DNSMadeEasy\resource\Failover', $client->failover,
-            'The failover manager should be of the type DNSMadeEasy\resource\Failover');
-        $this->assertInstanceOf('DNSMadeEasy\resource\Secondary', $client->secondary,
-            'The secondary manager should be of the type DNSMadeEasy\resource\Secondary');
-        $this->assertInstanceOf('DNSMadeEasy\resource\SecondaryRecords', $client->secondaryRecords,
-            'The secondary records manager should be of the type DNSMadeEasy\resource\SecondaryRecords');
+        $this->assertInstanceOf('DNSMadeEasy\Driver\Configuration', $configuration->getValue($client),
+            'The configuration object should be of the type DNSMadeEasy\Driver\Configuration');
+        $this->assertInstanceOf('DNSMadeEasy\Driver\REST', $driver->getValue($client),
+            'The REST driver should be of the type DNSMadeEasy\Driver\REST');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\Domains', $client->domains,
+            'The domains manager should be of the type DNSMadeEasy\Resource\Domains');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\Records', $client->records,
+            'The records manager should be of the type DNSMadeEasy\Resource\Records');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\SoaRecords', $client->soaRecords,
+            'The SoA records manager should be of the type DNSMadeEasy\Resource\SoaRecords');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\VanityDNS', $client->vanityDNS,
+            'The vanity DNS manager should be of the type DNSMadeEasy\Resource\VanityDNS');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\Templates', $client->templates,
+            'The templates manager should be of the type DNSMadeEasy\Resource\Templates');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\TemplateRecords', $client->templateRecords,
+            'The template recorsd manager should be of the type DNSMadeEasy\Resource\TemplateRecords');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\TransferACL', $client->transferACL,
+            'The transfer ACL manager should be of the type DNSMadeEasy\Resource\TransferACL');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\Folders', $client->folders,
+            'The folders manager should be of the type DNSMadeEasy\Resource\Folders');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\Usage', $client->usage,
+            'The usage manager should be of the type DNSMadeEasy\Resource\Usage');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\Failover', $client->failover,
+            'The failover manager should be of the type DNSMadeEasy\Resource\Failover');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\Secondary', $client->secondary,
+            'The secondary manager should be of the type DNSMadeEasy\Resource\Secondary');
+        $this->assertInstanceOf('DNSMadeEasy\Resource\SecondaryRecords', $client->secondaryRecords,
+            'The secondary records manager should be of the type DNSMadeEasy\Resource\SecondaryRecords');
     }
 
     /**
@@ -83,7 +83,7 @@ class ClientTest extends Base
         $configuration = $clientClass->getProperty('_config');
         $configuration->setAccessible(true);
 
-        $configurationClass = new \ReflectionClass('DNSMadeEasy\driver\Configuration');
+        $configurationClass = new \ReflectionClass('DNSMadeEasy\Driver\Configuration');
 
         $useSandbox = $configurationClass->getProperty('_useSandbox');
         $useSandbox->setAccessible(true);

@@ -42,11 +42,11 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Configuration::__construct
+     * @covers DNSMadeEasy\Driver\Configuration::__construct
      */
     public function testConstructor()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Configuration');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Configuration');
 
         $apiKey = $reflectionClass->getProperty('_apiKey');
         $apiKey->setAccessible(true);
@@ -65,7 +65,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Configuration::getAPIKey
+     * @covers DNSMadeEasy\Driver\Configuration::getAPIKey
      */
     public function testGetAPIKey()
     {
@@ -73,7 +73,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Configuration::getSecretKey
+     * @covers DNSMadeEasy\Driver\Configuration::getSecretKey
      */
     public function testGetSecretKey()
     {
@@ -81,7 +81,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Configuration::getURL
+     * @covers DNSMadeEasy\Driver\Configuration::getURL
      */
     public function testGetURL()
     {
@@ -97,11 +97,11 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Configuration::useSandbox
+     * @covers DNSMadeEasy\Driver\Configuration::useSandbox
      */
     public function testUseSandbox()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Configuration');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Configuration');
 
         $useSandbox = $reflectionClass->getProperty('_useSandbox');
         $useSandbox->setAccessible(true);
@@ -114,11 +114,11 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Configuration::debug
+     * @covers DNSMadeEasy\Driver\Configuration::debug
      */
     public function testDebug()
     {
-        $reflectionClass = new \ReflectionClass('DNSMadeEasy\driver\Configuration');
+        $reflectionClass = new \ReflectionClass('DNSMadeEasy\Driver\Configuration');
 
         $debug = $reflectionClass->getProperty('_debug');
         $debug->setAccessible(true);
@@ -131,7 +131,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\driver\Configuration::getDebug
+     * @covers DNSMadeEasy\Driver\Configuration::getDebug
      */
     public function testGetDebug()
     {
