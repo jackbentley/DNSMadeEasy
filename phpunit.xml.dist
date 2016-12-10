@@ -2,7 +2,7 @@
 <phpunit  bootstrap="tests/bootstrap.php" colors="true" verbose="true" backupGlobals="false">
   <testsuites>
     <testsuite name="DNSMadeEasy">
-        <directory>.</directory>
+        <directory>tests/</directory>
     </testsuite>
   </testsuites>
 

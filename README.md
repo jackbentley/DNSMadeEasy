@@ -83,6 +83,5 @@ export SECRETKEY=my_secret_key
 Then, simply go into the `tests` folder and run `phpunit`:
 
 ```
-cd tests
-phpunit
+vendor/bin/phpunit
 ```
