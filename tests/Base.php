@@ -46,14 +46,14 @@ class Base extends \PHPUnit_Framework_TestCase
     protected function getClient($apiKey = null, $secretKey = null, $useSandbox = true)
     {
         if (!$apiKey) {
-            $apikey = $this->getApiKey();
+            $apiKey = $this->getApiKey();
         }
 
         if (!$secretKey) {
             $secretKey = $this->getSecretKey();
         }
 
-        return $client = new Client($apikey, $secretKey, $useSandbox);
+        return $client = new Client($apiKey, $secretKey, $useSandbox);
     }
 
     /**
