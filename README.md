@@ -17,11 +17,12 @@ some operations, so most of those operations have been implemented.
 ### Getting Started
 ----------------------------------------------------------------------------
 
-#### Autoloading
-Simply include `Autoloader.php` and initialise it:
-```php
-require_once 'path/to/DNSMadeEasy/Autoloader.php';
-DNSMadeEasy\Autoloader::init();
+#### Composer
+
+Simply require the library via composer cli:
+
+```shell
+composer require f21/dnsmadeeasy
 ```
 
 #### Using the library
