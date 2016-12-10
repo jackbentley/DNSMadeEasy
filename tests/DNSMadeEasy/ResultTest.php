@@ -81,7 +81,11 @@ class ResultTest extends Base
      */
     public function testConstructorForUnsuccessfulResult()
     {
-        $result = new Result($this->errorResponse);
+        try {
+            $result = new Result($this->errorResponse);
+        } catch (ResultErrorException $e) {
+            $result = $e->getResult();
+        }
 
         $this->assertFalse($result->success, "The result's sucess property should be false");
         $this->assertEquals(404, $result->statusCode, "The status code should be 404");
@@ -99,7 +103,11 @@ class ResultTest extends Base
      */
     public function testConstructorForUnsuccessfulResultWithNoErrorMessage()
     {
-        $result = new Result($this->errorResponseWithNoErrorMessage);
+        try {
+            $result = new Result($this->errorResponseWithNoErrorMessage);
+        } catch (ResultErrorException $e) {
+            $result = $e->getResult();
+        }
 
         $this->assertFalse($result->success, "The result's sucess property should be false");
         $this->assertEquals(404, $result->statusCode, "The status code should be 404");
