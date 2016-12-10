@@ -2,8 +2,8 @@
 
 namespace DNSMadeEasy;
 
-use DNSMadeEasy\driver\Response;
-use DNSMadeEasy\exception\ResultErrorException;
+use DNSMadeEasy\Driver\Response;
+use DNSMadeEasy\Exception\ResultErrorException;
 
 /**
  * DNSMadeEasy is a PHP library to talk with DNSMadeEasy's v2.0 REST API.

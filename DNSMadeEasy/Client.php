@@ -2,8 +2,8 @@
 
 namespace DNSMadeEasy;
 
-use DNSMadeEasy\driver\Configuration;
-use DNSMadeEasy\driver\REST;
+use DNSMadeEasy\Driver\Configuration;
+use DNSMadeEasy\Driver\REST;
 
 /**
  * DNSMadeEasy is a PHP library to talk with DNSMadeEasy's v2.0 REST API.

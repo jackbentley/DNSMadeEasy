@@ -1,7 +1,7 @@
 <?php
 namespace tests\DNSMadeEasy;
 
-use DNSMadeEasy\driver\Response;
+use DNSMadeEasy\Driver\Response;
 use DNSMadeEasy\Result;
 use tests\Base;
 
