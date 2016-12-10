@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,19 +38,19 @@ class Usage
 
     /**
      * Get all usage for the account.
-     * @param  integer             $amount An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page   An optional parameter to return the results on page y.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
-    public function getAll($amount=null, $page=null)
+    public function getAll($amount = null, $page = null)
     {
         return $this->_driver->get("/usageApi/queriesApi{?rows,page}", array('rows' => $amount, 'page' => $page));
     }
 
     /**
      * Get usage by month.
-     * @param  integer             $year  The year.
-     * @param  integer             $month The month.
+     * @param  integer $year The year.
+     * @param  integer $month The month.
      * @return \DNSMadeEasy\Result
      */
     public function getByMonth($year, $month)
@@ -58,9 +60,9 @@ class Usage
 
     /**
      * Get usage for domain.
-     * @param  integer             $year     The year.
-     * @param  integer             $month    The month.
-     * @param  integer             $domainId The id of the domain.
+     * @param  integer $year The year.
+     * @param  integer $month The month.
+     * @param  integer $domainId The id of the domain.
      * @return \DNSMadeEasy\Result
      */
     public function getByMonthForDomain($year, $month, $domainId)
@@ -70,9 +72,9 @@ class Usage
 
     /**
      * Get usage for a secondary domain.
-     * @param  integer             $year        The year.
-     * @param  integer             $month       The month.
-     * @param  unknown             $secondaryId The id of the secondary domain.
+     * @param  integer $year The year.
+     * @param  integer $month The month.
+     * @param  unknown $secondaryId The id of the secondary domain.
      * @return \DNSMadeEasy\Result
      */
     public function getByMonthForSecondary($year, $month, $secondaryId)

@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,8 +38,8 @@ class Folders
 
     /**
      * Get all folders.
-     * @param  integer             $amount An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page   An optional parameter to return the results on page y.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
     public function getAll($amount = null, $page = null)
@@ -47,7 +49,7 @@ class Folders
 
     /**
      * Get a folder by its id.
-     * @param  integer             $id The id of the folder.
+     * @param  integer $id The id of the folder.
      * @return \DNSMadeEasy\Result
      */
     public function get($id)
@@ -57,7 +59,7 @@ class Folders
 
     /**
      * Create a folder.
-     * @param  array               $config The configuration of the folder.
+     * @param  array $config The configuration of the folder.
      * @return \DNSMadeEasy\Result
      */
     public function add(array $config)
@@ -67,7 +69,7 @@ class Folders
 
     /**
      * Delete a folder by its id.
-     * @param  integer             $id The folder to delete.
+     * @param  integer $id The folder to delete.
      * @return \DNSMadeEasy\Result
      */
     public function delete($id)
@@ -77,8 +79,8 @@ class Folders
 
     /**
      * Update a folder.
-     * @param inteer $id   The id of the folder.
-     * @param array  $data The new configuration of the folder.
+     * @param inteer $id The id of the folder.
+     * @param array $data The new configuration of the folder.
      */
     public function update($id, array $data)
     {

@@ -1,4 +1,5 @@
 <?php
+
 namespace DNSMadeEasy\driver;
 
 /**
@@ -29,7 +30,7 @@ class Configuration
      * @var string
      */
     private $_secretKey;
-    
+
     /**
      * The version
      * @var string
@@ -62,8 +63,8 @@ class Configuration
 
     /**
      * Construct the configuration object.
-     * @param string  $apiKey     The api key.
-     * @param string  $secretKey  The secret key.
+     * @param string $apiKey The api key.
+     * @param string $secretKey The secret key.
      * @param boolean $useSandbox Whether to use the sandbox or not.
      */
     public function __construct($apiKey, $secretKey, $useSandbox = false)
@@ -110,15 +111,16 @@ class Configuration
      */
     public function useSandbox($value)
     {
-        $this->_useSandbox = (boolean) $value;
+        $this->_useSandbox = (boolean)$value;
     }
-    
+
     /**
      * Tells us whether the sandbox is being used or not.
      * @return boolean
      */
-    public function usingSandbox(){
-    	return $this->_useSandbox;
+    public function usingSandbox()
+    {
+        return $this->_useSandbox;
     }
 
     /**
@@ -127,7 +129,7 @@ class Configuration
      */
     public function debug($value)
     {
-        $this->_debug = (boolean) $value;
+        $this->_debug = (boolean)$value;
     }
 
     /**

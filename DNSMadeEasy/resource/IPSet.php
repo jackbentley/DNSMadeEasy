@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,18 +38,18 @@ class IPSet
 
     /**
      * Get all ip sets.
-     * @param  integer             $amount An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page   An optional parameter to return the results on page y.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
-    public function getAll($amount = null, $page = null )
+    public function getAll($amount = null, $page = null)
     {
         return $this->_driver->get('/dns/secondary/ipSet{?rows,page}', array('rows' => $amount, 'page' => $page));
     }
 
     /**
      * Get an ip set by its id.
-     * @param  integer             $id The id of the ip set.
+     * @param  integer $id The id of the ip set.
      * @return \DNSMadeEasy\Result
      */
     public function get($id)
@@ -66,7 +68,7 @@ class IPSet
 
     /**
      * Delete an ip set by its id.
-     * @param  integer             $id The id of the ip set.
+     * @param  integer $id The id of the ip set.
      * @return \DNSMadeEasy\Result
      */
     public function delete($id)
@@ -82,8 +84,8 @@ class IPSet
 
     /**
      * Update an ip set.
-     * @param  integer             $id     The id of the ip set.
-     * @param  array               $config The new configuration of the ip set.
+     * @param  integer $id The id of the ip set.
+     * @param  array $config The new configuration of the ip set.
      * @return \DNSMadeEasy\Result
      */
     public function update($id, array $config)

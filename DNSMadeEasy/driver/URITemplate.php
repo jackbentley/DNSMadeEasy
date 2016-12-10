@@ -1,4 +1,5 @@
 <?php
+
 namespace DNSMadeEasy\driver;
 
 /**
@@ -38,22 +39,61 @@ class URITemplate
      * @var array Hash for quick operator lookups
      */
     private static $operatorHash = array(
-        '+' => true, '#' => true, '.' => true, '/' => true, ';' => true, '?' => true, '&' => true
+        '+' => true,
+        '#' => true,
+        '.' => true,
+        '/' => true,
+        ';' => true,
+        '?' => true,
+        '&' => true
     );
 
     /**
      * @var array Delimiters
      */
     private static $delims = array(
-        ':', '/', '?', '#', '[', ']', '@', '!', '$', '&', '\'', '(', ')', '*', '+', ',', ';', '='
+        ':',
+        '/',
+        '?',
+        '#',
+        '[',
+        ']',
+        '@',
+        '!',
+        '$',
+        '&',
+        '\'',
+        '(',
+        ')',
+        '*',
+        '+',
+        ',',
+        ';',
+        '='
     );
 
     /**
      * @var array Percent encoded delimiters
      */
     private static $delimsPct = array(
-        '%3A', '%2F', '%3F', '%23', '%5B', '%5D', '%40', '%21', '%24', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C',
-        '%3B', '%3D'
+        '%3A',
+        '%2F',
+        '%3F',
+        '%23',
+        '%5B',
+        '%5D',
+        '%40',
+        '%21',
+        '%24',
+        '%26',
+        '%27',
+        '%28',
+        '%29',
+        '%2A',
+        '%2B',
+        '%2C',
+        '%3B',
+        '%3D'
     );
 
     /**
@@ -97,12 +137,12 @@ class URITemplate
             if ($substrPos) {
                 $varspec['value'] = substr($value, 0, $substrPos);
                 $varspec['modifier'] = ':';
-                $varspec['position'] = (int) substr($value, $substrPos + 1);
+                $varspec['position'] = (int)substr($value, $substrPos + 1);
             } elseif (substr($value, -1) == '*') {
                 $varspec['modifier'] = '*';
                 $varspec['value'] = substr($value, 0, -1);
             } else {
-                $varspec['value'] = (string) $value;
+                $varspec['value'] = (string)$value;
                 $varspec['modifier'] = '';
             }
             $value = $varspec;
@@ -110,7 +150,7 @@ class URITemplate
 
         return array(
             'operator' => $operator,
-            'values'   => $values
+            'values' => $values
         );
     }
 
@@ -124,7 +164,7 @@ class URITemplate
     private function expandMatch(array $matches)
     {
         static $rfc1738to3986 = array(
-            '+'   => '%20',
+            '+' => '%20',
             '%7e' => '~'
         );
 
@@ -251,7 +291,7 @@ class URITemplate
      */
     private function isAssoc(array $array)
     {
-        return (bool) count(array_filter(array_keys($array), 'is_string'));
+        return (bool)count(array_filter(array_keys($array), 'is_string'));
     }
 
     /**

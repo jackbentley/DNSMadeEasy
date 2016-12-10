@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,8 +38,8 @@ class SoaRecords
 
     /**
      * Get all SoA records.
-     * @param  integer             $amount An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page   An optional parameter to return the results on page y.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
     public function getAll($amount = null, $page = null)
@@ -47,7 +49,7 @@ class SoaRecords
 
     /**
      * Get a SoA record by its id.
-     * @param  integer             $id The id of the SoA record.
+     * @param  integer $id The id of the SoA record.
      * @return \DNSMadeEasy\Result
      */
     public function get($id)
@@ -57,55 +59,57 @@ class SoaRecords
 
     /**
      * Create a SoA record.
-     * @param  array               $config The configuration of the new SoA record.
+     * @param  array $config The configuration of the new SoA record.
      * @return \DNSMadeEasy\Result
      */
     public function add(array $config)
     {
-    	$default = array('ttl' => 86400,
-		    			 'serial' => 2012020201,
-		    			 'refresh' => 14400,
-		    			 'retry' => 1800,
-		    			 'expire' => 86400,
-		    			 'negativeCache' => 1800);
-    	
-    	$config = array_merge($default, $config);
-    	
+        $default = array(
+            'ttl' => 86400,
+            'serial' => 2012020201,
+            'refresh' => 14400,
+            'retry' => 1800,
+            'expire' => 86400,
+            'negativeCache' => 1800
+        );
+
+        $config = array_merge($default, $config);
+
         return $this->_driver->post("/dns/soa", $config);
     }
 
     /**
      * Delete a SoA record by its id.
-     * @param  integer             $id The id of the SoA record.
+     * @param  integer $id The id of the SoA record.
      * @return \DNSMadeEasy\Result
      */
     public function delete($id)
     {
         return $this->_driver->delete("/dns/soa/$id");
     }
-    
+
     /**
      * Delete all SoA records.
      * @return \DNSMadeEasy\Result
      */
     public function deleteAll()
     {
-    	$records = $this->getAll();
-    	
-    	$counter = 0;
-    	
-    	foreach ($records->body->data as $record){
-    		$counter++;
-    		$this->delete($record->id); //This is inefficient, but DME does not provide a mass delete method.
-    	}
-    	 
-    	return $counter > 0;
+        $records = $this->getAll();
+
+        $counter = 0;
+
+        foreach ($records->body->data as $record) {
+            $counter++;
+            $this->delete($record->id); //This is inefficient, but DME does not provide a mass delete method.
+        }
+
+        return $counter > 0;
     }
 
     /**
      * Update a SoA record.
-     * @param  integer             $id   The id of the SoA record.
-     * @param  array               $data The new configuration for the SoA record.
+     * @param  integer $id The id of the SoA record.
+     * @param  array $data The new configuration for the SoA record.
      * @return \DNSMadeEasy\Result
      */
     public function update($id, array $data)

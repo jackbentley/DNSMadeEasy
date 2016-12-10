@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,8 +38,8 @@ class VanityDNS
 
     /**
      * Get all vanity DNS configurations.
-     * @param  integer             $amount An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page   An optional parameter to return the results on page y.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
     public function getAll($amount = null, $page = null)
@@ -47,7 +49,7 @@ class VanityDNS
 
     /**
      * Get a vanity DNS configuration by its id.
-     * @param  integer             $id The id of the vanity DNS configuration.
+     * @param  integer $id The id of the vanity DNS configuration.
      * @return \DNSMadeEasy\Result
      */
     public function get($id)
@@ -57,7 +59,7 @@ class VanityDNS
 
     /**
      * Add a vanity DNS configuration.
-     * @param  array               $config The configuration for the vanity DNS configuration.
+     * @param  array $config The configuration for the vanity DNS configuration.
      * @return \DNSMadeEasy\Result
      */
     public function add(array $config)
@@ -67,39 +69,39 @@ class VanityDNS
 
     /**
      * Delete a vanity DNS configuration by its id.
-     * @param  integer             $id The of the vanity DNS configuration.
+     * @param  integer $id The of the vanity DNS configuration.
      * @return \DNSMadeEasy\Result
      */
     public function delete($id)
     {
         return $this->_driver->delete("/dns/vanity/$id");
     }
-    
+
     /**
      * Delete all vanity DNS configuration.
      * @return \DNSMadeEasy\Result
      */
     public function deleteAll()
     {
-    	$vanityDNS = $this->getAll();
-    	
-    	$counter = 0;
-    	
-    	foreach ($vanityDNS->body->data as $config){
-    		
-    		if(!$config->public){
-    			$counter++;
-    			$this->delete($config->id); //This is inefficient, but DME does not provide a mass delete method.
-    		}
-    	}
-    	 
-    	return $counter > 0;
+        $vanityDNS = $this->getAll();
+
+        $counter = 0;
+
+        foreach ($vanityDNS->body->data as $config) {
+
+            if (!$config->public) {
+                $counter++;
+                $this->delete($config->id); //This is inefficient, but DME does not provide a mass delete method.
+            }
+        }
+
+        return $counter > 0;
     }
 
     /**
      * Update a vanity DNS configuration.
-     * @param  integer             $id   The id of the vanity DNS configuration.
-     * @param  array               $data The new configuration data for vanity DNS configuration.
+     * @param  integer $id The id of the vanity DNS configuration.
+     * @param  array $data The new configuration data for vanity DNS configuration.
      * @return \DNSMadeEasy\Result
      */
     public function update($id, array $data)

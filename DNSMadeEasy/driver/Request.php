@@ -1,4 +1,5 @@
 <?php
+
 namespace DNSMadeEasy\driver;
 
 /**
@@ -56,7 +57,7 @@ class Request
 
     /**
      * Constructs the request object.
-     * @param array  $info Information about the request from CURL.
+     * @param array $info Information about the request from CURL.
      * @param string $body The request body.
      */
     public function __construct(array $info, $body = null)
@@ -141,7 +142,7 @@ class Request
             //First line is special and not a key-value pair.
             if ($lineNumber == 0) {
 
-                $pattern='/^(GET|POST|PUT|DELETE|HEAD|TRACE|OPTIONS)\s+(\S+)\s+HTTP\/(\S+)/';
+                $pattern = '/^(GET|POST|PUT|DELETE|HEAD|TRACE|OPTIONS)\s+(\S+)\s+HTTP\/(\S+)/';
                 $matches = array();
                 preg_match($pattern, $line, $matches);
                 array_shift($matches);
@@ -151,7 +152,7 @@ class Request
                 $processed['url'] = $url;
                 $processed['version'] = $version;
 
-            //Other lines contain key:value-like headers
+                //Other lines contain key:value-like headers
             } else {
 
                 list($key, $value) = explode(':', $line, 2);

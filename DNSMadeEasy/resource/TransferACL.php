@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,8 +38,8 @@ class TransferACL
 
     /**
      * Get all transfer ACLs.
-     * @param  integer             $amount An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page   An optional parameter to return the results on page y.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
     public function getAll($amount = null, $page = null)
@@ -47,7 +49,7 @@ class TransferACL
 
     /**
      * Get a transfer ACL by its id.
-     * @param  integer             $id The id of the transfer acl.
+     * @param  integer $id The id of the transfer acl.
      * @return \DNSMadeEasy\Result
      */
     public function get($id)
@@ -57,7 +59,7 @@ class TransferACL
 
     /**
      * Create a new transfer ACL.
-     * @param  array               $config The configuration of the new transfer ACL.
+     * @param  array $config The configuration of the new transfer ACL.
      * @return \DNSMadeEasy\Result
      */
     public function add(array $config)
@@ -67,7 +69,7 @@ class TransferACL
 
     /**
      * Delete a transfer ACL by its id.
-     * @param  integer             $id The id of the transfer ACL.
+     * @param  integer $id The id of the transfer ACL.
      * @return \DNSMadeEasy\Result
      */
     public function delete($id)
@@ -77,8 +79,8 @@ class TransferACL
 
     /**
      * Update a transfer ACL.
-     * @param  integer             $id   The id of the transfer ACL.
-     * @param  array               $data The new configuration for the transfer ACL.
+     * @param  integer $id The id of the transfer ACL.
+     * @param  array $data The new configuration for the transfer ACL.
      * @return \DNSMadeEasy\Result
      */
     public function update($id, array $data)

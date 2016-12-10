@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,21 +38,22 @@ class TemplateRecords
 
     /**
      * Get records for a template by record type.
-     * @param  integer             $templateId The id of the template.
-     * @param  string              $type       The record type.
-     * @param  integer             $amount     An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page       An optional parameter to return the results on page y.
+     * @param  integer $templateId The id of the template.
+     * @param  string $type The record type.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
     public function getByType($templateId, $type, $amount = null, $page = null)
     {
-        return $this->_driver->get("/dns/template/$templateId/records{?type,rows,page}", array('type' => $type, 'amount' => $amount, 'page' => $page));
+        return $this->_driver->get("/dns/template/$templateId/records{?type,rows,page}",
+            array('type' => $type, 'amount' => $amount, 'page' => $page));
     }
 
     /**
      * Add a record to a template.
-     * @param  integer             $templateId The id of the template.
-     * @param  array               $config     The configuration of the new record.
+     * @param  integer $templateId The id of the template.
+     * @param  array $config The configuration of the new record.
      * @return \DNSMadeEasy\Result
      */
     public function add($templateId, array $config)
@@ -60,8 +63,8 @@ class TemplateRecords
 
     /**
      * Delete records from a template.
-     * @param  integer             $templateId The id of the template.
-     * @param  array|integer       $recordId   If deleting multiple records, an array of record ids, otherwise just the record id to delete a single record.
+     * @param  integer $templateId The id of the template.
+     * @param  array|integer $recordId If deleting multiple records, an array of record ids, otherwise just the record id to delete a single record.
      * @return \DNSMadeEasy\Result
      */
     public function delete($templateId, $recordId)
@@ -75,8 +78,8 @@ class TemplateRecords
 
     /**
      * Replace all the records in a template.
-     * @param  array               $templateId The id of the template.
-     * @param  array               $data       An array of new records.
+     * @param  array $templateId The id of the template.
+     * @param  array $data An array of new records.
      * @return \DNSMadeEasy\Result
      */
     public function replaceAllRecords($templateId, array $data)
@@ -86,9 +89,9 @@ class TemplateRecords
 
     /**
      * Update a record in a template.
-     * @param  integer             $template Id The id of the template.
-     * @param  integer             $recordId The id of the record.
-     * @param  array               $data     The new configuration for the record.
+     * @param  integer $template Id The id of the template.
+     * @param  integer $recordId The id of the record.
+     * @param  array $data The new configuration for the record.
      * @return \DNSMadeEasy\Result
      */
     public function update($templateId, $recordId, array $data)

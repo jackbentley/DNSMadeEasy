@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy;
+
 use DNSMadeEasy\driver\Response;
 use DNSMadeEasy\exception\ResultErrorException;
 
@@ -84,7 +86,7 @@ class Result
                 $this->errors[] = 'An error occurred, however, no error message was given. Use the response body, HTTP status code and URL to help troubleshoot the issue.';
             }
 
-        //If things went well.
+            //If things went well.
         } else {
             $this->body = $decoded;
         }
@@ -104,21 +106,22 @@ class Result
             $this->requestLimit = $response->getHeaders()['x-dnsme-requestLimit'];
         }
 
-        if(!$this->success){
-        	throw new ResultErrorException($this);
+        if (!$this->success) {
+            throw new ResultErrorException($this);
         }
     }
-    
-    public function __toString(){
-    	if(!empty($this->errors)){
-    		
-    		if(is_array($this->errors)){
-    			return implode(', ', $this->errors);
-    		}
-    		
-    		return $this->errors;
-    	}
-    	
-    	return null;
+
+    public function __toString()
+    {
+        if (!empty($this->errors)) {
+
+            if (is_array($this->errors)) {
+                return implode(', ', $this->errors);
+            }
+
+            return $this->errors;
+        }
+
+        return null;
     }
 }

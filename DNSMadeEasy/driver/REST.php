@@ -1,8 +1,10 @@
 <?php
+
 namespace DNSMadeEasy\driver;
+
 use DNSMadeEasy\debug\Debugger;
-use DNSMadeEasy\Result;
 use DNSMadeEasy\exception\RESTException;
+use DNSMadeEasy\Result;
 
 /**
  * DNSMadeEasy is a PHP library to talk with DNSMadeEasy's v2.0 REST API.
@@ -52,8 +54,8 @@ class REST
 
     /**
      * Performs a GET.
-     * @param  string              $command       The URI to append after the base URL.
-     * @param  array               $uriParameters An optional array of URI template parameters.
+     * @param  string $command The URI to append after the base URL.
+     * @param  array $uriParameters An optional array of URI template parameters.
      * @return \DNSMadeEasy\Result
      */
     public function get($command, array $uriParameters = array())
@@ -63,9 +65,9 @@ class REST
 
     /**
      * Performs a POST.
-     * @param  string              $command       The URI to append after the base URL.
-     * @param  string              $content       The request body.
-     * @param  array               $uriParameters An optional array of URI template parameters.
+     * @param  string $command The URI to append after the base URL.
+     * @param  string $content The request body.
+     * @param  array $uriParameters An optional array of URI template parameters.
      * @return \DNSMadeEasy\Result
      */
     public function post($command, $content = null, array $uriParameters = array())
@@ -75,9 +77,9 @@ class REST
 
     /**
      * Performs a PUT.
-     * @param  string              $command       The URI to append after the base URL.
-     * @param  string              $content       The request body.
-     * @param  array               $uriParameters An optional array of URI template parameters.
+     * @param  string $command The URI to append after the base URL.
+     * @param  string $content The request body.
+     * @param  array $uriParameters An optional array of URI template parameters.
      * @return \DNSMadeEasy\Result
      */
     public function put($command, $content = null, array $uriParameters = array())
@@ -87,9 +89,9 @@ class REST
 
     /**
      * Performs a DELETE.
-     * @param  string              $command       The URI to append after the base URL.
-     * @param  string              $content       The request body.
-     * @param  array               $uriParameters An optional array of URI template parameters.
+     * @param  string $command The URI to append after the base URL.
+     * @param  string $content The request body.
+     * @param  array $uriParameters An optional array of URI template parameters.
      * @return \DNSMadeEasy\Result
      */
     public function delete($command, $content = null, array $uriParameters = array())
@@ -110,22 +112,23 @@ class REST
         $date = date_create("now", new \DateTimeZone("GMT"))->format('D, d M Y H:i:s e');
         $hash = hash_hmac("sha1", $date, $this->_config->getSecretKey());
 
-        return array("x-dnsme-apiKey: {$this->_config->getAPIKey()}",
-                     "x-dnsme-requestDate: $date",
-                     "x-dnsme-hmac: $hash"
-                  );
+        return array(
+            "x-dnsme-apiKey: {$this->_config->getAPIKey()}",
+            "x-dnsme-requestDate: $date",
+            "x-dnsme-hmac: $hash"
+        );
     }
 
     /**
      * Sends the request to the server.
-     * @param  string              $command       The URI to append after the base URL.
-     * @param  array               $uriParameters An optional array of URI template parameters.
-     * @param  string              $method        The request method.
-     * @param  string              $content       The request body.
+     * @param  string $command The URI to append after the base URL.
+     * @param  array $uriParameters An optional array of URI template parameters.
+     * @param  string $method The request method.
+     * @param  string $content The request body.
      * @throws RESTException
      * @return \DNSMadeEasy\Result
      */
-    private function send($command, $uriParameters, $method, $content = NULL)
+    private function send($command, $uriParameters, $method, $content = null)
     {
         $url = $this->_config->getURL();
 
@@ -137,7 +140,7 @@ class REST
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        if ($content !== NULL) {
+        if ($content !== null) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($content));
         }
 
@@ -152,7 +155,8 @@ class REST
                 break;
 
             case "put":
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT"); //CURL_OPTPUT requires INFILE and writing to ram/disk, which is annoying
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST,
+                    "PUT"); //CURL_OPTPUT requires INFILE and writing to ram/disk, which is annoying
                 break;
 
             case "delete":
@@ -164,10 +168,11 @@ class REST
         curl_setopt($ch, CURLOPT_HEADER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 
-        if($this->_config->usingSandbox()){
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //Temporary workaround because https://api.sandbox.dnsmadeeasy.com uses a bad certificate
+        if ($this->_config->usingSandbox()) {
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,
+                false); //Temporary workaround because https://api.sandbox.dnsmadeeasy.com uses a bad certificate
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        }else{
+        } else {
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
         }

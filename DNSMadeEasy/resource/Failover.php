@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,7 +38,7 @@ class Failover
 
     /**
      * Get a failover monitor.
-     * @param  integer             $id The id of the failover monitor.
+     * @param  integer $id The id of the failover monitor.
      * @return \DNSMadeEasy\Result
      */
     public function get($id)
@@ -46,7 +48,7 @@ class Failover
 
     /**
      * Delete a failover monitor.
-     * @param  integer             $id The id of the failover monitor.
+     * @param  integer $id The id of the failover monitor.
      * @return \DNSMadeEasy\Result
      */
     public function delete($id)
@@ -56,8 +58,8 @@ class Failover
 
     /**
      * Update a failover monitor.
-     * @param  integer             $id   The id of the failover monitor.
-     * @param  array               $data The new configuration of the failover monitor.
+     * @param  integer $id The id of the failover monitor.
+     * @param  array $data The new configuration of the failover monitor.
      * @return \DNSMadeEasy\Result
      */
     public function update($id, array $data)

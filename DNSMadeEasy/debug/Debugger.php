@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\debug;
+
 use DNSMadeEasy\driver\Request;
 use DNSMadeEasy\driver\Response;
 
@@ -41,7 +43,8 @@ class Debugger
 
         //Body
         if ($request->getBody()) {
-            print "<pre>" . json_encode($request->getBody(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</pre>";
+            print "<pre>" . json_encode($request->getBody(),
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</pre>";
         }
 
         print '</td>';
@@ -73,7 +76,8 @@ class Debugger
             $body = json_decode($response->getBody());
 
             if ($body) {
-                print "<pre>" . json_encode($body, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</pre>";
+                print "<pre>" . json_encode($body,
+                        JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</pre>";
             } elseif ($response->getBody()) {
                 print "<pre>" . $response->getBody() . "</pre>";
             }

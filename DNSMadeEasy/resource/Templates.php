@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,8 +38,8 @@ class Templates
 
     /**
      * Get all templates.
-     * @param  integer             $amount An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page   An optional parameter to return the results on page y.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
     public function getAll($amount = null, $page = null)
@@ -47,7 +49,7 @@ class Templates
 
     /**
      * Get a template by its id.
-     * @param  integer             $id The id of the template.
+     * @param  integer $id The id of the template.
      * @return \DNSMadeEasy\Result
      */
     public function get($id)
@@ -57,7 +59,7 @@ class Templates
 
     /**
      * Create a new template.
-     * @param  array               $config Configuraton for the template.
+     * @param  array $config Configuraton for the template.
      * @return \DNSMadeEasy\Result
      */
     public function add(array $config)
@@ -67,7 +69,7 @@ class Templates
 
     /**
      * Delete a template by its id.
-     * @param  integer             $id The id of the template.
+     * @param  integer $id The id of the template.
      * @return \DNSMadeEasy\Result
      */
     public function delete($id)
@@ -77,8 +79,8 @@ class Templates
 
     /**
      * Update a template.
-     * @param  integer             $id   The id of the template.
-     * @param  array               $data The new configuration for the template.
+     * @param  integer $id The id of the template.
+     * @param  array $data The new configuration for the template.
      * @return \DNSMadeEasy\Result
      */
     public function update($id, array $data)

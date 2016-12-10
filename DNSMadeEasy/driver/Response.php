@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\driver;
+
 use DNSMadeEasy\exception\RESTException;
 
 /**
@@ -60,53 +62,53 @@ class Response
      * @var array
      */
     private $_httpCodeDefinitions = array(
-            100 => 'Continue',
-            101 => 'Switching Protocols',
-            200 => 'OK',
-            201 => 'Created',
-            202 => 'Accepted',
-            203 => 'Non-Authoritative Information',
-            204 => 'No Content',
-            205 => 'Reset Content',
-            206 => 'Partial Content',
-            300 => 'Multiple Choices',
-            301 => 'Moved Permanently',
-            302 => 'Found',
-            303 => 'See Other',
-            304 => 'Not Modified',
-            305 => 'Use Proxy',
-            307 => 'Temporary Redirect',
-            400 => 'Bad Request',
-            401 => 'Unauthorized',
-            402 => 'Payment Required',
-            403 => 'Forbidden',
-            404 => 'Not Found',
-            405 => 'Method Not Allowed',
-            406 => 'Not Acceptable',
-            407 => 'Proxy Authentication Required',
-            408 => 'Request Timeout',
-            409 => 'Conflict',
-            410 => 'Gone',
-            411 => 'Length Required',
-            412 => 'Precondition Failed',
-            413 => 'Request Entity Too Large',
-            414 => 'Request-URI Too Long',
-            415 => 'Unsupported Media Type',
-            416 => 'Requested Range Not Satisfiable',
-            417 => 'Expectation Failed',
-            418 => 'I\'m a teapot',
-            500 => 'Internal Server Error',
-            501 => 'Not Implemented',
-            502 => 'Bad Gateway',
-            503 => 'Service Unavailable',
-            504 => 'Gateway Timeout',
-            505 => 'HTTP Version Not Supported',
+        100 => 'Continue',
+        101 => 'Switching Protocols',
+        200 => 'OK',
+        201 => 'Created',
+        202 => 'Accepted',
+        203 => 'Non-Authoritative Information',
+        204 => 'No Content',
+        205 => 'Reset Content',
+        206 => 'Partial Content',
+        300 => 'Multiple Choices',
+        301 => 'Moved Permanently',
+        302 => 'Found',
+        303 => 'See Other',
+        304 => 'Not Modified',
+        305 => 'Use Proxy',
+        307 => 'Temporary Redirect',
+        400 => 'Bad Request',
+        401 => 'Unauthorized',
+        402 => 'Payment Required',
+        403 => 'Forbidden',
+        404 => 'Not Found',
+        405 => 'Method Not Allowed',
+        406 => 'Not Acceptable',
+        407 => 'Proxy Authentication Required',
+        408 => 'Request Timeout',
+        409 => 'Conflict',
+        410 => 'Gone',
+        411 => 'Length Required',
+        412 => 'Precondition Failed',
+        413 => 'Request Entity Too Large',
+        414 => 'Request-URI Too Long',
+        415 => 'Unsupported Media Type',
+        416 => 'Requested Range Not Satisfiable',
+        417 => 'Expectation Failed',
+        418 => 'I\'m a teapot',
+        500 => 'Internal Server Error',
+        501 => 'Not Implemented',
+        502 => 'Bad Gateway',
+        503 => 'Service Unavailable',
+        504 => 'Gateway Timeout',
+        505 => 'HTTP Version Not Supported',
     );
 
     /**
      * Construct the driver response.
-     * @param string $response  The response containing the headers and body as a string.
-     * @param float  $timeTaken The time taken in seconds.
+     * @param string $response The response containing the headers and body as a string.
+     * @param float $timeTaken The time taken in seconds.
      */
     public function __construct($response, $timeTaken)
     {
@@ -119,7 +121,7 @@ class Response
 
         $parsedHeaders = $this->parseHeaders($parsed['headers']);
 
-        $this->_statusCode = (int) $parsedHeaders['statusCode'];
+        $this->_statusCode = (int)$parsedHeaders['statusCode'];
         $this->_version = $parsedHeaders['version'];
         $this->_headers = $parsedHeaders['headers'];
     }
@@ -189,7 +191,7 @@ class Response
 
     /**
      * Parse the response message to split it into the headers and the body.
-     * @param  string        $message The response string.
+     * @param  string $message The response string.
      * @throws RESTException
      * @return array
      */
@@ -198,7 +200,7 @@ class Response
         assert(is_string($message));
 
         $barrier = "\r\n\r\n";
-        $border  = strpos($message, $barrier);
+        $border = strpos($message, $barrier);
 
         if ($border === false) {
             throw new RESTException('Got an invalid response from the server.');
@@ -207,7 +209,7 @@ class Response
         $result = array();
 
         $result['headers'] = substr($message, 0, $border);
-        $result['body']   = substr($message, $border + strlen($barrier));
+        $result['body'] = substr($message, $border + strlen($barrier));
 
         return $result;
     }
@@ -227,7 +229,7 @@ class Response
             //The first line is special and not a key-value pair.
             if ($lineNumber == 0) {
 
-                $pattern='/^HTTP\/(\S+)\s*(\d+)/i';
+                $pattern = '/^HTTP\/(\S+)\s*(\d+)/i';
                 $matches = array();
                 preg_match($pattern, $line, $matches);
                 array_shift($matches);
@@ -236,7 +238,7 @@ class Response
                 $processed['version'] = $version;
                 $processed['statusCode'] = $statusCode;
 
-            //Other lines contain key:value-like headers
+                //Other lines contain key:value-like headers
             } else {
 
                 list($key, $value) = explode(':', $line, 2);

@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy;
+
 use DNSMadeEasy\driver\Configuration;
 use DNSMadeEasy\driver\REST;
 
@@ -31,7 +33,7 @@ class Client
      * @var REST
      */
     private $_driver;
-    
+
     /**
      * Cache the created objects for performance.
      * @var array
@@ -40,8 +42,8 @@ class Client
 
     /**
      * Construct the client.
-     * @param string  $apiKey     DNSMadeEasy API key.
-     * @param string  $secretKey  DNSMadeEasy secret key.
+     * @param string $apiKey DNSMadeEasy API key.
+     * @param string $secretKey DNSMadeEasy secret key.
      * @param boolean $useSandbox Whether to use the sandbox or not.
      */
     public function __construct($apiKey, $secretKey, $useSandbox = false)
@@ -50,26 +52,26 @@ class Client
         $this->_config = new Configuration($apiKey, $secretKey, $useSandbox);
         $this->_driver = new REST($this->_config);
     }
-    
+
     public function __call($method, $args)
     {
-    	$lower = strtolower($method);
-    	
-    	if(array_key_exists($lower, $this->_objectCache)){
-    		return $this->_objectCache[$lower];
-    	}
-    	
-    	$class_name = '\DNSMadeEasy\resource\\' . ucfirst($method);
-    
-    	if (class_exists($class_name)) {
-    		$class = new $class_name($this->_driver);
-    
-    		$this->_objectCache[$lower] = $class;
-    		
-    		return $class;
-    	} else {
-    		throw new \BadMethodCallException('Call to undefined method '.get_class($this).'::'.$method.'()');
-    	}
+        $lower = strtolower($method);
+
+        if (array_key_exists($lower, $this->_objectCache)) {
+            return $this->_objectCache[$lower];
+        }
+
+        $class_name = '\DNSMadeEasy\resource\\' . ucfirst($method);
+
+        if (class_exists($class_name)) {
+            $class = new $class_name($this->_driver);
+
+            $this->_objectCache[$lower] = $class;
+
+            return $class;
+        } else {
+            throw new \BadMethodCallException('Call to undefined method ' . get_class($this) . '::' . $method . '()');
+        }
     }
 
     /**

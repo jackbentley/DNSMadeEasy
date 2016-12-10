@@ -1,5 +1,7 @@
 <?php
+
 namespace DNSMadeEasy\resource;
+
 use DNSMadeEasy\driver\REST;
 
 /**
@@ -36,20 +38,21 @@ class SecondaryRecords
 
     /**
      * Get all secondary dns records for a secondary dns domain.
-     * @param  integer             $domainId The id of the domain.
-     * @param  integer             $amount   An optional parameter restricting the result to be x amount per page.
-     * @param  integer             $page     An optional parameter to return the results on page y.
+     * @param  integer $domainId The id of the domain.
+     * @param  integer $amount An optional parameter restricting the result to be x amount per page.
+     * @param  integer $page An optional parameter to return the results on page y.
      * @return \DNSMadeEasy\Result
      */
     public function getAll($domainId, $amount = null, $page = null)
     {
-        return $this->_driver->get("/dns/secondary/$domainId/records{?rows,page}", array('rows' => $amount, 'page' => $page));
+        return $this->_driver->get("/dns/secondary/$domainId/records{?rows,page}",
+            array('rows' => $amount, 'page' => $page));
     }
 
     /**
      * Get a record for a secondary dns domain.
-     * @param  integer             $domainId The id of the secondary dns domain.
-     * @param  integer             $recordId The id of the record.
+     * @param  integer $domainId The id of the secondary dns domain.
+     * @param  integer $recordId The id of the record.
      * @return \DNSMadeEasy\Result
      */
     public function get($domainId, $recordId)
@@ -59,8 +62,8 @@ class SecondaryRecords
 
     /**
      * Add a secondary dns record to a secondary dns domain.
-     * @param  integer             $domainId The id of the domain.
-     * @param  array               $config   The configuration for the record.
+     * @param  integer $domainId The id of the domain.
+     * @param  array $config The configuration for the record.
      * @return \DNSMadeEasy\Result
      */
     public function add($domainId, array $config)
@@ -70,8 +73,8 @@ class SecondaryRecords
 
     /**
      * Delete secondary dns records from a domain.
-     * @param  integer             $domainId The id of the domain.
-     * @param  integer             $recordId If deleting multiple records, an array of record ids, otherwise just the record id to delete a single record.
+     * @param  integer $domainId The id of the domain.
+     * @param  integer $recordId If deleting multiple records, an array of record ids, otherwise just the record id to delete a single record.
      * @return \DNSMadeEasy\Result
      */
     public function delete($domainId, $recordId)
@@ -85,9 +88,9 @@ class SecondaryRecords
 
     /**
      * Update a secondary dns record.
-     * @param  integer             $domainId The id of the domain.
-     * @param  integer             $recordId The id of the record.
-     * @param  array               $data     The new configuration for the record.
+     * @param  integer $domainId The id of the domain.
+     * @param  integer $recordId The id of the record.
+     * @param  array $data The new configuration for the record.
      * @return \DNSMadeEasy\Result
      */
     public function update($domainId, $recordId, array $data)
