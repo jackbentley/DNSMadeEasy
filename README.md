@@ -1,5 +1,5 @@
-### PHP Library for DNSMadeEasy's API V2.0
-----------------------------------------------------------------------------
+PHP Library for DNSMadeEasy's API V2.0
+======================================
 
 This is a simple PHP library to work with DNSMadeEasy's v2.0 API. The operations are pretty low-level, although if required, I
 hope the community can work together to build a version that abstracts away most of the low-level operations.
@@ -14,8 +14,9 @@ be drop-in, although some operations will need you to update your code a bit.
 I have also done some testing and experimenting as DME's API documents are sorely lacking in certain areas and seems to be missing
 some operations, so most of those operations have been implemented.
 
-### Getting Started
-----------------------------------------------------------------------------
+
+Getting Started
+---------------
 
 #### Composer
 
@@ -64,8 +65,9 @@ $client->debug(true);
 The client will then produce some HTML output showing the request and the response. This feature is best used when testing
 in a browser.
 
-### Testing
-----------------------------------------------------------------------------
+
+Testing
+-------
 
 <em>Note: I started writing tests for the resources class (classes that represents DME operations like domains, records etc), however,
 I had lots of problems trying to get them to work against DME's sandbox. Mainly because things like adding and deleting domains would

@@ -2,7 +2,8 @@
 	"name" : "f21/dnsmadeeasy",
 	"description" : "A simple php library to work with DNSMadeEasy's API v2.0",
 	"type" : "library",
-	"authors" : [{
+	"authors" : [
+        {
 			"name" : "Francis Chuang",
 			"email" : "francis.chuang@gmail.com",
 			"homepage" : "https://github.com/F21",
