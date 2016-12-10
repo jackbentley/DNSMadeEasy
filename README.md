@@ -1,17 +1,15 @@
 PHP Library for DNSMadeEasy's API V2.0
 ======================================
 
-This is a simple PHP library to work with DNSMadeEasy's v2.0 API. The operations are pretty low-level, although if required, I
-hope the community can work together to build a version that abstracts away most of the low-level operations.
+This is a simple PHP library to work with DNSMadeEasy's v2.0 API. The operations are pretty low-level, although if required, it's
+hoped that the community can work together to build a version that abstracts away most of the low-level operations.
 
 All operations for the v2.0 API is supported and implemented.
 
-At the moment, my needs are pretty simple, so the low-level operations suits me just fine :smile:
-
-I have taken inspiration from the [v1.2 library](https://github.com/a1extran/DnsMadeEasy) and most operations should pretty much
+The library takes inspiration from the [v1.2 library](https://github.com/a1extran/DnsMadeEasy) and most operations should pretty much
 be drop-in, although some operations will need you to update your code a bit.
 
-I have also done some testing and experimenting as DME's API documents are sorely lacking in certain areas and seems to be missing
+Some testing and experimenting has been done, as DME's API documents are sorely lacking in certain areas and seems to be missing
 some operations, so most of those operations have been implemented.
 
 
@@ -83,7 +81,7 @@ export APIKEY=my_api_key
 export SECRETKEY=my_secret_key
 ```
 
-Then, simply go into the `tests` folder and run `phpunit`:
+Then, simply run `phpunit` in the project directory:
 
 ```
 vendor/bin/phpunit
