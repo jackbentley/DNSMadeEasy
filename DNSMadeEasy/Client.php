@@ -61,7 +61,7 @@ class Client
             return $this->_objectCache[$lower];
         }
 
-        $class_name = '\DNSMadeEasy\resource\\' . ucfirst($method);
+        $class_name = '\DNSMadeEasy\Resource\\' . ucfirst($method);
 
         if (class_exists($class_name)) {
             $class = new $class_name($this->_driver);
