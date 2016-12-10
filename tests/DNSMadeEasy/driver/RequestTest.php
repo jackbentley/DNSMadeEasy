@@ -1,7 +1,9 @@
 <?php
+
 namespace tests\DNSMadeEasy\driver;
-use tests\Base;
+
 use DNSMadeEasy\driver\Request;
+use tests\Base;
 
 /**
  * Tests for the driver request object.
@@ -21,34 +23,35 @@ class RequestTest extends Base
      * The curl information for testing.
      * @var array
      */
-    protected $curlInfo = array('url' => 'http://api.sandbox.dnsmadeeasy.com/V2.0/dns/managed',
-                            'content_type' => 'application/json',
-                            'http_code' => 200,
-                            'header_size' => 339,
-                            'request_size' => 244,
-                            'filetime' => -1,
-                            'ssl_verify_result' => 1,
-                            'redirect_count' => 0,
-                            'total_time' => 1.230122,
-                            'namelookup_time' => 0.629414,
-                            'connect_time' => 0.904966,
-                            'pretransfer_time' => 0.905243,
-                            'size_upload' => 0,
-                            'size_download' => 709,
-                            'speed_download' => 576,
-                            'speed_upload' => 0,
-                            'download_content_length' => -1,
-                            'upload_content_length' => 0,
-                            'starttransfer_time' => 1.228725,
-                            'redirect_time' => 0,
-                            'certinfo' => array(),
-                            'primary_ip' => '208.94.147.116',
-                            'primary_port' => 80,
-                            'local_ip' => '192.168.1.20',
-                            'local_port' => 49636,
-                            'redirect_url' => '',
-                            'request_header' => "POST /V2.0/dns/managed HTTP/1.1\r\nHost: api.sandbox.dnsmadeeasy.com\r\nAccept: */*\r\nx-dnsme-apiKey: 123-456-789\r\nx-dnsme-requestDate: Wed, 22 May 2013 06:20:31 UTC\r\nx-dnsme-hmac: 7d4fc7bdsdfa3agd429f280b0289dbc7058cf7c4e"
-                    );
+    protected $curlInfo = [
+        'url' => 'http://api.sandbox.dnsmadeeasy.com/V2.0/dns/managed',
+        'content_type' => 'application/json',
+        'http_code' => 200,
+        'header_size' => 339,
+        'request_size' => 244,
+        'filetime' => -1,
+        'ssl_verify_result' => 1,
+        'redirect_count' => 0,
+        'total_time' => 1.230122,
+        'namelookup_time' => 0.629414,
+        'connect_time' => 0.904966,
+        'pretransfer_time' => 0.905243,
+        'size_upload' => 0,
+        'size_download' => 709,
+        'speed_download' => 576,
+        'speed_upload' => 0,
+        'download_content_length' => -1,
+        'upload_content_length' => 0,
+        'starttransfer_time' => 1.228725,
+        'redirect_time' => 0,
+        'certinfo' => [],
+        'primary_ip' => '208.94.147.116',
+        'primary_port' => 80,
+        'local_ip' => '192.168.1.20',
+        'local_port' => 49636,
+        'redirect_url' => '',
+        'request_header' => "POST /V2.0/dns/managed HTTP/1.1\r\nHost: api.sandbox.dnsmadeeasy.com\r\nAccept: */*\r\nx-dnsme-apiKey: 123-456-789\r\nx-dnsme-requestDate: Wed, 22 May 2013 06:20:31 UTC\r\nx-dnsme-hmac: 7d4fc7bdsdfa3agd429f280b0289dbc7058cf7c4e"
+    ];
 
     /**
      * The request body.
@@ -93,7 +96,8 @@ class RequestTest extends Base
 
         $request = new Request($this->curlInfo, $this->body);
 
-        $this->assertEquals($this->curlInfo['request_header'], $rawHeaders->getValue($request), 'The request headers do not match');
+        $this->assertEquals($this->curlInfo['request_header'], $rawHeaders->getValue($request),
+            'The request headers do not match');
         $this->assertEquals($this->body, $body->getValue($request), 'The body does not match');
         $this->assertEquals('POST', $method->getValue($request), 'The method does not match');
         $this->assertEquals('1.1', $version->getValue($request), 'The version does not match');
@@ -148,7 +152,8 @@ class RequestTest extends Base
      */
     public function testGetRawHeaders()
     {
-        $this->assertEquals($this->curlInfo['request_header'], $this->request->getRawHeaders(), 'The raw headers do not match');
+        $this->assertEquals($this->curlInfo['request_header'], $this->request->getRawHeaders(),
+            'The raw headers do not match');
     }
 
     /**

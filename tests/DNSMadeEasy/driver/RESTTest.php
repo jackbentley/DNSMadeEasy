@@ -1,8 +1,10 @@
 <?php
+
 namespace tests\DNSMadeEasy\driver;
-use tests\Base;
+
 use DNSMadeEasy\driver\Configuration;
 use DNSMadeEasy\driver\REST;
+use tests\Base;
 
 /**
  * Tests for the REST driver.
@@ -56,9 +58,12 @@ class RESTTest extends Base
 
         $rest = new REST(new Configuration($this->getApiKey(), $this->getSecretKey(), true));
 
-        $this->assertInstanceOf('DNSMadeEasy\driver\Configuration', $configuration->getValue($rest), 'The configuration object should be of the type DNSMadeEasy\driver\Configuration');
-        $this->assertInstanceOf('DNSMadeEasy\debug\Debugger', $debugger->getValue($rest), 'The debugger should be of the type DNSMadeEasy\debug\Debugger');
-        $this->assertInstanceOf('DNSMadeEasy\driver\URITemplate', $uriTemplate->getValue($rest), 'The URITemplate object should be of the type DNSMadeEasy\driver\URITemplate');
+        $this->assertInstanceOf('DNSMadeEasy\driver\Configuration', $configuration->getValue($rest),
+            'The configuration object should be of the type DNSMadeEasy\driver\Configuration');
+        $this->assertInstanceOf('DNSMadeEasy\debug\Debugger', $debugger->getValue($rest),
+            'The debugger should be of the type DNSMadeEasy\debug\Debugger');
+        $this->assertInstanceOf('DNSMadeEasy\driver\URITemplate', $uriTemplate->getValue($rest),
+            'The URITemplate object should be of the type DNSMadeEasy\driver\URITemplate');
     }
 
     /**
@@ -78,15 +83,15 @@ class RESTTest extends Base
     public function testPostPutAndDelete()
     {
         $config = array(
-                        'name' => 'PHPLibraryTest',
-                        'email' => 'php.library.com',
-                        'ttl' => 86400,
-                        'comp' => 'ns.phplibrarytest.com',
-                        'serial' => 2012020203,
-                        'refresh' => 14400,
-                        'retry' => 1800,
-                        'expire' => 86400,
-                        'negativeCache' => 1800
+            'name' => 'PHPLibraryTest',
+            'email' => 'php.library.com',
+            'ttl' => 86400,
+            'comp' => 'ns.phplibrarytest.com',
+            'serial' => 2012020203,
+            'refresh' => 14400,
+            'retry' => 1800,
+            'expire' => 86400,
+            'negativeCache' => 1800
         );
 
         //POST
@@ -139,7 +144,8 @@ class RESTTest extends Base
         try {
             $result = $getAuthenticationHeaders->invoke($rest);
         } catch (\Exception $e) {
-            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e, 'Exception thrown was not a DNSMadeEasy\exception\RESTException');
+            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e,
+                'Exception thrown was not a DNSMadeEasy\exception\RESTException');
 
             return;
         }
@@ -162,15 +168,15 @@ class RESTTest extends Base
         $this->assertInstanceOf('DNSMadeEasy\Result', $result, 'The result should be of the type DNSMadeEasy\Result');
 
         $config = array(
-                'name' => 'PHPLibraryTest',
-                'email' => 'php.library.com',
-                'ttl' => 86400,
-                'comp' => 'ns.phplibrarytest.com',
-                'serial' => 2012020203,
-                'refresh' => 14400,
-                'retry' => 1800,
-                'expire' => 86400,
-                'negativeCache' => 1800
+            'name' => 'PHPLibraryTest',
+            'email' => 'php.library.com',
+            'ttl' => 86400,
+            'comp' => 'ns.phplibrarytest.com',
+            'serial' => 2012020203,
+            'refresh' => 14400,
+            'retry' => 1800,
+            'expire' => 86400,
+            'negativeCache' => 1800
         );
 
         $result = $send->invoke($this->rest, '/dns/soa', array(), 'POST', $config);
@@ -204,11 +210,11 @@ class RESTTest extends Base
         $configuration->debug(true);
         $rest = new REST($configuration);
 
-        $this->setOutputCallback(function($output){
+        $this->setOutputCallback(function ($output) {
             $this->assertInternalType('string', $output);
         });
 
-            $send->invoke($rest, '/dns/soa{?rows,page}', array('rows' => 1, 'page' => 1), 'GET');
+        $send->invoke($rest, '/dns/soa{?rows,page}', array('rows' => 1, 'page' => 1), 'GET');
     }
 
     /**
@@ -233,7 +239,8 @@ class RESTTest extends Base
         try {
             $send->invoke($rest, '/dns/soa', array(), 'GET');
         } catch (\Exception $e) {
-            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e, 'Exception thrown was not a DNSMadeEasy\exception\RESTException');
+            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e,
+                'Exception thrown was not a DNSMadeEasy\exception\RESTException');
 
             return;
         }

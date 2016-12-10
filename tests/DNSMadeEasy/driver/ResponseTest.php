@@ -1,7 +1,9 @@
 <?php
+
 namespace tests\DNSMadeEasy\driver;
-use tests\Base;
+
 use DNSMadeEasy\driver\Response;
+use tests\Base;
 
 /**
  * Tests for the driver response object.
@@ -23,7 +25,7 @@ class ResponseTest extends Base
      * @var string
      */
     protected $responseData =
-"HTTP/1.1 200 OK\r\nServer: Apache-Coyote/1.1\r\nx-dnsme-requestId: 918f36f1-45f1-4bdc-8d55-a6f26a3db73b\r\nx-dnsme-requestsRemaining: 148\r\nx-dnsme-requestLimit: 150\r\nSet-Cookie: JSESSIONID=3CC6DB92E45AD918WS894TSDDC67EF47; Path=/V2.0/; HttpOnly\r\nContent-Type: application/json\r\nTransfer-Encoding: chunked\r\nDate: Wed, 22 May 2013 06:37:08 GMT\r\n\r\n
+        "HTTP/1.1 200 OK\r\nServer: Apache-Coyote/1.1\r\nx-dnsme-requestId: 918f36f1-45f1-4bdc-8d55-a6f26a3db73b\r\nx-dnsme-requestsRemaining: 148\r\nx-dnsme-requestLimit: 150\r\nSet-Cookie: JSESSIONID=3CC6DB92E45AD918WS894TSDDC67EF47; Path=/V2.0/; HttpOnly\r\nContent-Type: application/json\r\nTransfer-Encoding: chunked\r\nDate: Wed, 22 May 2013 06:37:08 GMT\r\n\r\n
 {\"data\":[{\"name\":\"test.com\",\"id\":861223,\"folderId\":1027,\"pendingActionId\":0,\"gtdEnabled\":false,\"vanityId\":12241,\"created\":1369094400000,\"updated\":1369139723297,\"processMulti\":false},{\"name\":\"test1.com\",\"id\":861221,\"folderId\":1027,\"pendingActionId\":0,\"gtdEnabled\":false,\"created\":1369094400000,\"updated\":1369139430632,\"processMulti\":false}],\"page\":0,\"totalPages\":1,\"totalRecords\":2}";
 
     /**
@@ -168,7 +170,8 @@ class ResponseTest extends Base
         try {
             $parsed = $parseMessage->invoke($this->response, "invalid data");
         } catch (\Exception $e) {
-            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e, 'Exception thrown was not a DNSMadeEasy\exception\RESTException');
+            $this->assertInstanceOf('DNSMadeEasy\exception\RESTException', $e,
+                'Exception thrown was not a DNSMadeEasy\exception\RESTException');
 
             return;
         }

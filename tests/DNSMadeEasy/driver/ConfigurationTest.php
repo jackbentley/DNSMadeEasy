@@ -1,7 +1,9 @@
 <?php
+
 namespace tests\DNSMadeEasy\driver;
-use tests\Base;
+
 use DNSMadeEasy\driver\Configuration;
+use tests\Base;
 
 /**
  * Tests for the configuration object.
@@ -85,11 +87,13 @@ class ConfigurationTest extends Base
     {
         $configuration = new Configuration($this->apiKey, $this->secretKey, true);
 
-        $this->assertEquals('https://api.sandbox.dnsmadeeasy.com/V2.0', $configuration->getURL(), "The sandbox url should be returned");
+        $this->assertEquals('https://api.sandbox.dnsmadeeasy.com/V2.0', $configuration->getURL(),
+            "The sandbox url should be returned");
 
         $configuration = new Configuration($this->apiKey, $this->secretKey, false);
 
-        $this->assertEquals('https://api.dnsmadeeasy.com/V2.0', $configuration->getURL(), "The sandbox url should be returned");
+        $this->assertEquals('https://api.dnsmadeeasy.com/V2.0', $configuration->getURL(),
+            "The sandbox url should be returned");
     }
 
     /**
