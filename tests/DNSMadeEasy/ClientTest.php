@@ -29,7 +29,7 @@ class ClientTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Client::__construct
+     * @covers \DNSMadeEasy\Client::__construct
      */
     public function testConstructor()
     {
@@ -74,7 +74,7 @@ class ClientTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Client::useSandbox
+     * @covers \DNSMadeEasy\Client::useSandbox
      */
     public function testUseSandbox()
     {
@@ -97,7 +97,7 @@ class ClientTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Client::debug
+     * @covers \DNSMadeEasy\Client::debug
      */
     public function testDebug()
     {

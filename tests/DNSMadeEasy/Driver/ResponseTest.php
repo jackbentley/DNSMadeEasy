@@ -44,7 +44,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::__construct
+     * @covers \DNSMadeEasy\Driver\Response::__construct
      */
     public function testConstructor()
     {
@@ -80,7 +80,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::getVersion
+     * @covers \DNSMadeEasy\Driver\Response::getVersion
      */
     public function testGetVersion()
     {
@@ -88,7 +88,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::getStatusCode
+     * @covers \DNSMadeEasy\Driver\Response::getStatusCode
      */
     public function testGetStatusCode()
     {
@@ -96,7 +96,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::getStatus
+     * @covers \DNSMadeEasy\Driver\Response::getStatus
      */
     public function testGetStatus()
     {
@@ -104,7 +104,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::getHeaders
+     * @covers \DNSMadeEasy\Driver\Response::getHeaders
      */
     public function testGetHeaders()
     {
@@ -113,7 +113,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::getBody
+     * @covers \DNSMadeEasy\Driver\Response::getBody
      */
     public function testGetBody()
     {
@@ -121,7 +121,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::getTimeTaken
+     * @covers \DNSMadeEasy\Driver\Response::getTimeTaken
      */
     public function testGetTimeTaken()
     {
@@ -129,7 +129,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::getRawHeaders
+     * @covers \DNSMadeEasy\Driver\Response::getRawHeaders
      */
     public function testGetRawHeaders()
     {
@@ -137,7 +137,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::parseMessage
+     * @covers \DNSMadeEasy\Driver\Response::parseMessage
      */
     public function testParseMessage()
     {
@@ -158,7 +158,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::parseMessage
+     * @covers \DNSMadeEasy\Driver\Response::parseMessage
      */
     public function testParseInvalidMessage()
     {
@@ -180,7 +180,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::parseHeaders
+     * @covers \DNSMadeEasy\Driver\Response::parseHeaders
      */
     public function testParseHeaders()
     {
@@ -210,7 +210,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::fixJSON
+     * @covers \DNSMadeEasy\Driver\Response::fixJSON
      */
     public function testFixJSON()
     {
@@ -227,7 +227,7 @@ class ResponseTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Response::fixJSON
+     * @covers \DNSMadeEasy\Driver\Response::fixJSON
      */
     public function testFixJSONWithValidJSON()
     {

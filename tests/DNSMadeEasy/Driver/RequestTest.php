@@ -70,7 +70,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::__construct
+     * @covers \DNSMadeEasy\Driver\Request::__construct
      */
     public function testConstructor()
     {
@@ -107,7 +107,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::getMethod
+     * @covers \DNSMadeEasy\Driver\Request::getMethod
      */
     public function testGetMethod()
     {
@@ -115,7 +115,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::getVersion
+     * @covers \DNSMadeEasy\Driver\Request::getVersion
      */
     public function testGetVersion()
     {
@@ -123,7 +123,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::getUrl
+     * @covers \DNSMadeEasy\Driver\Request::getUrl
      */
     public function testGetUrl()
     {
@@ -131,7 +131,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::getHeaders
+     * @covers \DNSMadeEasy\Driver\Request::getHeaders
      */
     public function testGetHeaders()
     {
@@ -140,7 +140,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::getBody
+     * @covers \DNSMadeEasy\Driver\Request::getBody
      */
     public function testGetBody()
     {
@@ -148,7 +148,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::getRawHeaders
+     * @covers \DNSMadeEasy\Driver\Request::getRawHeaders
      */
     public function testGetRawHeaders()
     {
@@ -157,7 +157,7 @@ class RequestTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Request::parseHeaders
+     * @covers \DNSMadeEasy\Driver\Request::parseHeaders
      */
     public function testParseHeaders()
     {

@@ -32,7 +32,7 @@ class DebuggerTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Debug\Debugger::request
+     * @covers \DNSMadeEasy\Debug\Debugger::request
      */
     public function testRequest()
     {
@@ -79,7 +79,7 @@ class DebuggerTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Debug\Debugger::response
+     * @covers \DNSMadeEasy\Debug\Debugger::response
      */
     public function testResponse()
     {
@@ -98,7 +98,7 @@ class DebuggerTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Debug\Debugger::response
+     * @covers \DNSMadeEasy\Debug\Debugger::response
      */
     public function testResponseWithFailure()
     {

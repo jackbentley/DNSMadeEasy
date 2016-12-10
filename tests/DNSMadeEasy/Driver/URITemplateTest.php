@@ -12,7 +12,7 @@ use tests\Base;
  * @link https://github.com/F21/DNSMadeEasy
  * @license http://www.apache.org/licenses/LICENSE-2.0.html Apache 2 License
  *
- * @covers DNSMadeEasy\Driver\URITemplate
+ * @covers \DNSMadeEasy\Driver\URITemplate
  */
 class URITemplateTest extends Base
 {

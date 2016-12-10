@@ -42,7 +42,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Configuration::__construct
+     * @covers \DNSMadeEasy\Driver\Configuration::__construct
      */
     public function testConstructor()
     {
@@ -65,7 +65,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Configuration::getAPIKey
+     * @covers \DNSMadeEasy\Driver\Configuration::getAPIKey
      */
     public function testGetAPIKey()
     {
@@ -73,7 +73,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Configuration::getSecretKey
+     * @covers \DNSMadeEasy\Driver\Configuration::getSecretKey
      */
     public function testGetSecretKey()
     {
@@ -81,7 +81,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Configuration::getURL
+     * @covers \DNSMadeEasy\Driver\Configuration::getURL
      */
     public function testGetURL()
     {
@@ -97,7 +97,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Configuration::useSandbox
+     * @covers \DNSMadeEasy\Driver\Configuration::useSandbox
      */
     public function testUseSandbox()
     {
@@ -114,7 +114,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Configuration::debug
+     * @covers \DNSMadeEasy\Driver\Configuration::debug
      */
     public function testDebug()
     {
@@ -131,7 +131,7 @@ class ConfigurationTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\Configuration::getDebug
+     * @covers \DNSMadeEasy\Driver\Configuration::getDebug
      */
     public function testGetDebug()
     {

@@ -2,6 +2,7 @@
 namespace tests\DNSMadeEasy;
 
 use DNSMadeEasy\Driver\Response;
+use DNSMadeEasy\Exception\ResultErrorException;
 use DNSMadeEasy\Result;
 use tests\Base;
 
@@ -58,7 +59,7 @@ class ResultTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Result::__construct
+     * @covers \DNSMadeEasy\Result::__construct
      */
     public function testConstructor()
     {
@@ -77,7 +78,7 @@ class ResultTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Result::__construct
+     * @covers \DNSMadeEasy\Result::__construct
      */
     public function testConstructorForUnsuccessfulResult()
     {
@@ -99,7 +100,7 @@ class ResultTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Result::__construct
+     * @covers \DNSMadeEasy\Result::__construct
      */
     public function testConstructorForUnsuccessfulResultWithNoErrorMessage()
     {

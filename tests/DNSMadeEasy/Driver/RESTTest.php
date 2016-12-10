@@ -41,7 +41,7 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::__construct
+     * @covers \DNSMadeEasy\Driver\REST::__construct
      */
     public function testConstructor()
     {
@@ -67,7 +67,7 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::get
+     * @covers \DNSMadeEasy\Driver\REST::get
      */
     public function testGet()
     {
@@ -76,9 +76,9 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::post
-     * @covers DNSMadeEasy\Driver\REST::put
-     * @covers DNSMadeEasy\Driver\REST::delete
+     * @covers \DNSMadeEasy\Driver\REST::post
+     * @covers \DNSMadeEasy\Driver\REST::put
+     * @covers \DNSMadeEasy\Driver\REST::delete
      */
     public function testPostPutAndDelete()
     {
@@ -113,7 +113,7 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::getAuthenticationHeaders
+     * @covers \DNSMadeEasy\Driver\REST::getAuthenticationHeaders
      */
     public function testGetAuthenticationHeaders()
     {
@@ -129,7 +129,7 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::getAuthenticationHeaders
+     * @covers \DNSMadeEasy\Driver\REST::getAuthenticationHeaders
      */
     public function testGetAuthenticationHeadersWithoutAPIKeys()
     {
@@ -154,7 +154,7 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::send
+     * @covers \DNSMadeEasy\Driver\REST::send
      */
     public function testSend()
     {
@@ -197,7 +197,7 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::send
+     * @covers \DNSMadeEasy\Driver\REST::send
      */
     public function testSendInDebugMode()
     {
@@ -218,7 +218,7 @@ class RESTTest extends Base
     }
 
     /**
-     * @covers DNSMadeEasy\Driver\REST::send
+     * @covers \DNSMadeEasy\Driver\REST::send
      */
     public function testSendWithInvalidAPIEndpoint()
     {
