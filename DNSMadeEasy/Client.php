@@ -4,6 +4,19 @@ namespace DNSMadeEasy;
 
 use DNSMadeEasy\Driver\Configuration;
 use DNSMadeEasy\Driver\REST;
+use DNSMadeEasy\Resource\Domains;
+use DNSMadeEasy\Resource\Failover;
+use DNSMadeEasy\Resource\Folders;
+use DNSMadeEasy\Resource\IPSet;
+use DNSMadeEasy\Resource\Records;
+use DNSMadeEasy\Resource\Secondary;
+use DNSMadeEasy\Resource\SecondaryRecords;
+use DNSMadeEasy\Resource\SoaRecords;
+use DNSMadeEasy\Resource\TemplateRecords;
+use DNSMadeEasy\Resource\Templates;
+use DNSMadeEasy\Resource\TransferACL;
+use DNSMadeEasy\Resource\Usage;
+use DNSMadeEasy\Resource\VanityDNS;
 
 /**
  * DNSMadeEasy is a PHP library to talk with DNSMadeEasy's v2.0 REST API.
@@ -19,6 +32,20 @@ use DNSMadeEasy\Driver\REST;
  * @author Francis Chuang <francis.chuang@gmail.com>
  * @link https://github.com/F21/DNSMadeEasy
  * @license http://www.apache.org/licenses/LICENSE-2.0.html Apache 2 License
+ *
+ * @method Domains domains()
+ * @method Failover failover()
+ * @method Folders folders()
+ * @method IPSet IPSet()
+ * @method Records records()
+ * @method Secondary secondary()
+ * @method SecondaryRecords secondaryRecords()
+ * @method SoaRecords soaRecords()
+ * @method TemplateRecords templateRecords()
+ * @method Templates templates()
+ * @method TransferACL transferACL()
+ * @method Usage usage()
+ * @method VanityDNS vanityDNS()
  */
 class Client
 {
