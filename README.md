@@ -86,3 +86,12 @@ Then, simply run `phpunit` in the project directory:
 ```
 vendor/bin/phpunit
 ```
+
+
+To-Do List
+----------
+
+ - Move driver to guzzle
+ - Mock DME API calls in tests
+ - Add test cases for DNSMadeEasy/Resources
+ - (maybe) Add data models and higher level usage
